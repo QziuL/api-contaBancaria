@@ -14,19 +14,15 @@ public class User {
     private String name;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @Column(nullable = false)
     private Account account;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @Column(nullable = false)
     private Card card;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)  // sempre retorna a lista de features do usuário
-    @Column(nullable = false)
     private List<Feature> features;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @Column(nullable = false)
     private List<News> news;
 
     public Long getId() {
