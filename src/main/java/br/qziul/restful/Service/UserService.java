@@ -8,5 +8,5 @@ public interface UserService {
     List<User> findAll();
     User findById(Long id);
     User create(User user);
-    boolean deleteById(Long id);
+    User deleteById(Long id);
 }
