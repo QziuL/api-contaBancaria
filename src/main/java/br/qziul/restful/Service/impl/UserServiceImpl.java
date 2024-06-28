@@ -28,18 +28,18 @@ public class UserServiceImpl implements UserService {
     @Override
     public User create(User user) {
         if(Objects.isNull(user))
-            throw new IllegalArgumentException("Usuário não pode ser nulo.");
+            throw new IllegalArgumentException("Usuário nulo.");
         if(userRepository.existsByAccountNumber(user.getAccount().getNumber()))
-            throw new IllegalArgumentException("Número da conta já existente.");
+            throw new IllegalArgumentException("Número da conta existente.");
+        if(userRepository.existsByCardNumber(user.getCard().getNumber()))
+            throw new IllegalArgumentException("Número do cartão existente.");
         return userRepository.save(user);
     }
 
     @Override
-    public boolean deleteById(Long id) {
-        if (userRepository.existsById(id)) {
-            userRepository.deleteById(id);
-            return true;
-        }
-        return false;
+    public User deleteById(Long id) {
+        User user = findById(id);
+        userRepository.deleteById(id);
+        return user;
     }
 }
