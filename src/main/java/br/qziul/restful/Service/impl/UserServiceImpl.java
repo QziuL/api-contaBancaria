@@ -29,8 +29,6 @@ public class UserServiceImpl implements UserService {
     public User create(User user) {
         if(Objects.isNull(user))
             throw new IllegalArgumentException("Usuário não pode ser nulo.");
-        if(userRepository.existsById(user.getId()))
-            throw new IllegalArgumentException("Usuário já existente.");
         if(userRepository.existsByAccountNumber(user.getAccount().getNumber()))
             throw new IllegalArgumentException("Número da conta já existente.");
         return userRepository.save(user);
