@@ -39,9 +39,13 @@ public class UserController {
     }
 
     @DeleteMapping("/users/{id}")
-    public ResponseEntity<Boolean> deleteById(@PathVariable Long id) {
-        return (userService.deleteById(id))
-                ? new ResponseEntity<>(HttpStatus.OK)
-                : new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+    public ResponseEntity<User> deleteById(@PathVariable Long id) {
+        return ResponseEntity.ok(userService.deleteById(id));
+
+        /*  = caso o retorno seja boolean =
+            (userService.deleteById(id))
+            ? new ResponseEntity<>(HttpStatus.OK)
+            : new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+         */
     }
 }
