@@ -12,8 +12,8 @@ public abstract class BaseItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String icon;
-    private String description;
+    protected String icon;
+    protected String description;
 
     public Long getId() {
         return id;
