@@ -1,6 +1,8 @@
 package br.qziul.restful.Service.impl;
 
 import br.qziul.restful.Service.UserService;
+import br.qziul.restful.dto.CardDTO;
+import br.qziul.restful.dto.UserDTO;
 import br.qziul.restful.model.User;
 import br.qziul.restful.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,14 +28,14 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User create(User user) {
-        if(Objects.isNull(user))
+    public User create(UserDTO userDTO) {
+        if(Objects.isNull(userDTO))
             throw new IllegalArgumentException("Usuário nulo.");
-        if(userRepository.existsByAccountNumber(user.getAccount().getNumber()))
+        if(userRepository.existsByAccountNumber(userDTO.getAccount().getNumber()))
             throw new IllegalArgumentException("Número da conta existente.");
-        if(userRepository.existsByCardNumber(user.getCard().getNumber()))
+        if(userRepository.existsByCardNumber(userDTO.getCard().getNumber()))
             throw new IllegalArgumentException("Número do cartão existente.");
-        return userRepository.save(user);
+        return userRepository.save(userDTO.convertToUser());
     }
 
     @Override

@@ -1,6 +1,7 @@
 package br.qziul.restful.controller;
 
 import br.qziul.restful.Service.UserService;
+import br.qziul.restful.dto.UserDTO;
 import br.qziul.restful.model.User;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,8 +29,8 @@ public class UserController {
     }
 
     @PostMapping("/users")
-    public ResponseEntity<User> create(@RequestBody User user) {
-        User newUser = userService.create(user);
+    public ResponseEntity<User> create(@RequestBody UserDTO userDTO) {
+        User newUser = userService.create(userDTO);
         URI location = ServletUriComponentsBuilder
                         .fromCurrentRequest()
                         .path("/{id}")
