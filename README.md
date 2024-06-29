@@ -14,7 +14,7 @@ informações de cartão (número, limite), opções da conta (features) e notí
 - OpenAPI WebMVC UI (Swagger)
 - Railway (deploy)
 
-#### Diagrama de Classes ()
+#### Diagrama de Classes (Sintaxe Mermaid)
 
 ```mermaid
 classDiagram
