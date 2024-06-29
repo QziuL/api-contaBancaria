@@ -22,6 +22,19 @@ public class Account {
     @Column(name = "additional_limit", nullable = false, precision = 13, scale = 2)
     private BigDecimal limit;
 
+    public Account(){}
+    public Account(
+            String number,
+            String agency,
+            BigDecimal balance,
+            BigDecimal limit
+    ) {
+        this.number = number;
+        this.agency = agency;
+        this.balance = balance;
+        this.limit = limit;
+    }
+
     public Long getId() {
         return id;
     }
