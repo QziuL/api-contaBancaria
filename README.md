@@ -56,5 +56,7 @@ classDiagram
 
 Para deploy da API e do banco Postgres, foi utilizado o [Railway](https://railway.app/).
 
-Acesso à API (com Swagger/OpenAPI):
-https://api-springboot-prod.up.railway.app/swagger-ui/index.html
+~~Acesso à API (com Swagger/OpenAPI):
+https://api-springboot-prod.up.railway.app/swagger-ui/index.html~~
+
+Deploy fora do ar.
