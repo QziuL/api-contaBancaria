@@ -54,6 +54,39 @@ classDiagram
     User "1" *-- "N" News
 ```
 
+#### Json de exemplo para request de criar novo usuário
+
+```
+{
+  "name": "Luiz Fernando",
+  "account": {
+    "number": "138273641",
+    "agency": "123",
+    "balance": 12831,
+    "limit": 90000
+  },
+  "card": {
+    "number": "192837128",
+    "limit": 90000
+  },
+  "features": [
+    {
+      "icon": "path/icon",
+      "description": "home"
+    }
+  ],
+  "news": [
+    {
+      "icon": "path/icon",
+      "description": "promotion"
+    }
+  ]
+}
+```
+Features e News podem ser informações de um Card a ser exibido no Frontend.
+
+<hr/>
+
 Para deploy da API e do banco Postgres, foi utilizado o [Railway](https://railway.app/).
 
 ~~Acesso à API (com Swagger/OpenAPI):
